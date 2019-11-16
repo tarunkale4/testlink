@@ -1,0 +1,31 @@
+Connect to database()
+	Try
+		Fetch ip, port, username, password from config file
+		Connect to database(ip, port, username, password)
+		Create database instance
+		Return database instance
+	Catch exception
+		Display error "Something went wrong"
+
+Login(username, password)
+	Connect to database() and save in db_instance
+	Search username and password using db_instance
+	If username exists 
+		If hashed_password matches database_password
+			Login the user
+			Redirect to homepage and display content
+		Else 
+			Display login page with error message "password is wrong"
+	Else 
+		Display login page with error message "username not found"
+
+Show user data (username)
+	If logged_in_user has authorization
+		Connect to database() and save in db_instance
+		Fetch user_data from database
+		Display user_data
+	Else
+		Display error message "Unauthorized request"
+
+Show loginpage()
+	Display login form with username and password
